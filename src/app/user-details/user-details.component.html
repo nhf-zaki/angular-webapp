@@ -1,0 +1,39 @@
+<h3>User Details</h3>
+<!--<h4>Search User by Username</h4>-->
+<!--<div>-->
+  <!--<form (ngSubmit)="onSubmit()">-->
+    <!--<div class="form-group">-->
+      <!--<label for="username">Username: </label>-->
+      <!--<input type="text" class="form-control" id="username" required [(ngModel)]="username" name="username">-->
+    <!--</div>-->
+
+    <!--<div class="btn-group">-->
+      <!--<button type="submit" class="btn btn-success">Search</button>-->
+    <!--</div>-->
+  <!--</form>-->
+<!--</div>-->
+<h4>Search User by any attribute</h4>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Search by any attribute" required [(ngModel)]="usernameSearchText" name="usernameSearchText" id="usernameSearch">
+</div>
+<h4>Users Table</h4>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Age</th>
+    <th>Address</th>
+  </tr>
+  <tr *ngFor="let user of (users | userFilter: usernameSearchText)">
+    <td>{{user.id}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.age}}</td>
+    <td>{{user.address}}</td>
+  </tr>
+</table>
